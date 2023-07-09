@@ -31,18 +31,3 @@ if prompt:
     st.write(completion.result)
 else:
     st.write("type something and hit enter...")
-
-#Using google-text-to-speech library
-tts = gTTS(completion.result, lang='en')
-
-# Save audio to temporary file
-with tempfile.NamedTemporaryFile(delete=False) as fp:
-    tts.save(fp.name)
-    audio_path = fp.name
-
-# Read the audio file
-with open(audio_path, 'rb') as f:
-    audio_bytes = f.read()
-
-# Play the audio
-st.audio(audio_bytes, format='audio/mp3')
