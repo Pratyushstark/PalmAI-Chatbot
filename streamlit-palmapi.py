@@ -11,7 +11,7 @@ from io import BytesIO
 import tempfile
 
 #Mention your api key here provided to you by https://makersuite.google.com/app
-palm.configure(api_key='PALM-API-KEY')
+palm.configure(api_key=st.secrets['PALM-API-KEY'])
 models = [m for m in palm.list_models() if 'generateText' in m.supported_generation_methods]
 model = models[0].name
 
